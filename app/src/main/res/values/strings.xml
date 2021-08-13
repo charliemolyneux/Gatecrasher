@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Gatecrasher</string>
+
+    <!-- Strings relating to Start Menu -->
+    <string name="start">Start</string>
+    <string name="leaderboards">Leaderboards</string>
+    <string name="exit">Exit</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#3F51B5</color>
+    <color name="colorSecondary">#3F51B5</color>
+    <color name="colorLight">#8FC4EF</color>
+
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="joystickBackground">#BABABA</color>
+    <color name="joystickPad">#686868</color>
+</resources>
