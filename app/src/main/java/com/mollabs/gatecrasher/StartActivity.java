@@ -3,12 +3,17 @@ package com.mollabs.gatecrasher;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+/**
+ *  StartActivity is the Entry Point of the Application
+ * */
 public class StartActivity extends AppCompatActivity {
 
     private Button startButton;
@@ -25,6 +30,15 @@ public class StartActivity extends AppCompatActivity {
         exitButton = findViewById(R.id.exitButton);
         leaderBoardButton = findViewById(R.id.leaderboardsButton);
         settingsButton = findViewById(R.id.settingsButton);
+
+
+        // Set window to fullscreen (hide status bar)
+        Window window = getWindow();
+        window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+        );
+
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
