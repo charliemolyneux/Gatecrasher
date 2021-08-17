@@ -1,13 +1,12 @@
 package com.mollabs.gatecrasher;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 import io.github.controlwear.virtual.joystick.android.JoystickView;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     JoystickView joystick;
     TextView joystickText;
@@ -15,29 +14,29 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(new Game(this));
 
         joystick = findViewById(R.id.joystickView);
         joystickText = findViewById(R.id.joystickText);
 
-        joystick.setOnMoveListener(new JoystickView.OnMoveListener() {
+/*        joystick.setOnMoveListener(new JoystickView.OnMoveListener() {
             @Override
             public void onMove(int angle, int strength) {
                 joystickText.setText("Angle: " + angle + "°" + "\n"
                         + "Strength: " + strength + "%");
 
-                /* TODO :   Create player 1.
-                            Translate and rotate player1.    */
+                *//* TODO :   Create player 1.
+                            Translate and rotate player1.    *//*
 
 
 
 
 
-                /* TODO :   check if player1 goes through a gate.
+                *//* TODO :   check if player1 goes through a gate.
                             if true, destroy enemies within range.
-                            check if player1 is hit by enemy (Endgame).    */
+                            check if player1 is hit by enemy (Endgame).    *//*
             }
-        });
+        });*/
 
 
     }
