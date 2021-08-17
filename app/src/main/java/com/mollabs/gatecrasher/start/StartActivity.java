@@ -1,4 +1,4 @@
-package com.mollabs.gatecrasher;
+package com.mollabs.gatecrasher.start;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +8,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.material.button.MaterialButton;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.mollabs.gatecrasher.main.MainActivity;
+import com.mollabs.gatecrasher.R;
 
 /**
  *  StartActivity is the Entry Point of the Application

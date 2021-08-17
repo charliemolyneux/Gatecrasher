@@ -1,4 +1,4 @@
-package com.mollabs.gatecrasher;
+package com.mollabs.gatecrasher.start;
 
 import androidx.appcompat.app.AppCompatActivity;
 

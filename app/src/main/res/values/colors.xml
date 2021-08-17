@@ -9,6 +9,6 @@
     <color name="colorData">#FF09FF</color>
 
     <color name="colorPlayer">#2196F3</color>
-    <color name="joystickBackground">#BABABA</color>
-    <color name="joystickPad">#686868</color>
+    <color name="joystickBackground">#DCDCDC</color>
+    <color name="joystickPad">#FFEB3B</color>
 </resources>
