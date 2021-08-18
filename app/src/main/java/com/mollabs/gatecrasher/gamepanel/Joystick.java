@@ -1,4 +1,4 @@
-package com.mollabs.gatecrasher.main;
+package com.mollabs.gatecrasher.gamepanel;
 
 import android.graphics.Canvas;
 import android.graphics.Color;

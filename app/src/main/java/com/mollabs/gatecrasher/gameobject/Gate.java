@@ -1,4 +1,4 @@
-package com.mollabs.gatecrasher.object;
+package com.mollabs.gatecrasher.gameobject;
 
 public class Gate extends Line {
 

@@ -1,13 +1,13 @@
-package com.mollabs.gatecrasher.object;
+package com.mollabs.gatecrasher.gamepanel;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 
 import androidx.core.content.ContextCompat;
 
 import com.mollabs.gatecrasher.R;
+import com.mollabs.gatecrasher.gameobject.Player;
 
 /*
 * HealthBar displays the players health to the screen
@@ -15,7 +15,7 @@ import com.mollabs.gatecrasher.R;
 public class HealthBar {
     private Player player;
     private int width, height, margin; // pixel values
-    private Paint borderPaint, healthPaint;
+    private Paint borderPaint, healthPaint, healthTextPaint;
 
     public HealthBar(Context context, Player player) {
         this.player = player;
@@ -32,13 +32,16 @@ public class HealthBar {
         this.healthPaint = new Paint();
         int healthColor = ContextCompat.getColor(context, R.color.healthBarHealth);
         healthPaint.setColor(healthColor);
+
+        // Paint health bar text
+        this.healthTextPaint = new Paint();
+        int healthTextColor = ContextCompat.getColor(context, R.color.healthBarText);
+        healthTextPaint.setColor(healthTextColor);
+        healthTextPaint.setTextSize(40);
     }
 
     public void draw(Canvas canvas) {
         float healthPointsPercentage = (float) player.getHealthPoints() / Player.MAX_HEALTH_POINTS;
-
-        // Draw Text
-        //canvas.drawText(healthBarText, healthTextPositionX, healthTextPositionY, healthTextPaint);
 
         // Draw border
         float borderLeft, borderTop, borderRight, borderBottom;
@@ -57,5 +60,12 @@ public class HealthBar {
         healthBottom = borderBottom + margin;
         healthTop = healthBottom + healthHeight;
         canvas.drawRect(healthLeft, healthTop, healthRight, healthBottom, healthPaint);
+
+        // Draw Text
+        float healthTextPositionX , healthTextPositionY;
+        String healthBarText = "Health";
+        healthTextPositionX = width - 200;
+        healthTextPositionY = borderTop - 72;
+        canvas.drawText(healthBarText, healthTextPositionX, healthTextPositionY, healthTextPaint);
     }
 }

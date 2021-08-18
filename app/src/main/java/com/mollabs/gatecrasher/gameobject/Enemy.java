@@ -1,9 +1,8 @@
-package com.mollabs.gatecrasher.object;
+package com.mollabs.gatecrasher.gameobject;
 
 import android.content.Context;
 import androidx.core.content.ContextCompat;
 import com.mollabs.gatecrasher.R;
-import com.mollabs.gatecrasher.main.Game;
 import com.mollabs.gatecrasher.main.GameLoop;
 
 /*

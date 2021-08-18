@@ -1,13 +1,13 @@
-package com.mollabs.gatecrasher.object;
+package com.mollabs.gatecrasher.gameobject;
 
 import android.content.Context;
 import android.graphics.Canvas;
 
 import androidx.core.content.ContextCompat;
 import com.mollabs.gatecrasher.R;
+import com.mollabs.gatecrasher.gamepanel.HealthBar;
 import com.mollabs.gatecrasher.main.GameLoop;
-import com.mollabs.gatecrasher.main.Joystick;
-import com.mollabs.gatecrasher.object.Circle;
+import com.mollabs.gatecrasher.gamepanel.Joystick;
 
 /*
 * Player is the main character of the game, which the user controls using a touch joystick
