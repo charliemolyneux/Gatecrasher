@@ -6,33 +6,4 @@
     android:layout_height="match_parent"
     tools:context=".main.MainActivity">
 
-    <TextView
-        android:id="@+id/joystickText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Joystick Output"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.392"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29" />
-
-    <io.github.controlwear.virtual.joystick.android.JoystickView
-        android:id="@+id/joystickView"
-        android:layout_width="153dp"
-        android:layout_height="153dp"
-        app:JV_backgroundColor="@color/joystickBackground"
-        app:JV_borderColor="@color/joystickPad"
-        app:JV_borderWidth="4dp"
-        app:JV_buttonColor="@color/joystickPad"
-        app:JV_buttonSizeRatio="18%"
-        app:JV_fixedCenter="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.915"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.92" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
