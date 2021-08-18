@@ -1,14 +1,13 @@
 package com.mollabs.gatecrasher.main;
 
-import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-import com.mollabs.gatecrasher.R;
-
+/*
+* Joystick is the user control over the player in the game
+* */
 public class Joystick {
-
     private Paint outerCirclePaint;
     private Paint innerCirclePaint;
     private int outerCircleRadius;
@@ -124,6 +123,5 @@ public class Joystick {
             );
         }
     }
-
 
 }

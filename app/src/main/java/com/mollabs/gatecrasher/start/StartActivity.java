@@ -14,34 +14,21 @@ import com.mollabs.gatecrasher.main.MainActivity;
 import com.mollabs.gatecrasher.R;
 
 /**
- *  StartActivity is the Entry Point of the Application
+ * StartActivity is the Entry Point of the Application
  * */
 public class StartActivity extends AppCompatActivity {
-
-    private Button startButton;
-    private Button exitButton;
-    private FloatingActionButton leaderBoardButton;
-    private FloatingActionButton settingsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        startButton = findViewById(R.id.startButton);
-        exitButton = findViewById(R.id.exitButton);
-        leaderBoardButton = findViewById(R.id.leaderboardsButton);
-        settingsButton = findViewById(R.id.settingsButton);
+        Button startButton = findViewById(R.id.startButton);
+        Button exitButton = findViewById(R.id.exitButton);
+        FloatingActionButton leaderBoardButton = findViewById(R.id.leaderboardsButton);
+        FloatingActionButton settingsButton = findViewById(R.id.settingsButton);
 
-
-        // Set window to fullscreen (hide status bar)
-        Window window = getWindow();
-        window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-        );
-
-
+        // Starts the game
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,6 +37,7 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
+        // Exits the application
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,6 +47,7 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
+        // Displays leaderboard
         leaderBoardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +56,7 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
+        // Displays settings
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
