@@ -10,10 +10,12 @@
 
     <color name="colorPlayer">#2196F3</color>
     <color name="colorEnemy">#FF0000</color>
+    <color name="colorSpell">#FFEB3B</color>
+    <color name="colorGate">#FF7700</color>
     <color name="healthBarBorder">#A0A0A0</color>
     <color name="healthBarHealth">#00FF00</color>
     <color name="healthBarText">#FFFFFF</color>
-    <color name="gameOver">#FF0000</color>
+    <color name="gameOver">#FFFFFF</color>
     <color name="joystickBackground">#DCDCDC</color>
     <color name="joystickPad">#FFEB3B</color>
 </resources>

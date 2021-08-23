@@ -5,7 +5,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 
 /*
-* Joystick is the user control over the player in the game
+* Joystick is the users control over the player in the game
+* Player will move in the direction of the joystick
 * */
 public class Joystick {
     private Paint outerCirclePaint;

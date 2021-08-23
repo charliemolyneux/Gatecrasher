@@ -3,6 +3,7 @@ package com.mollabs.gatecrasher.gamepanel;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 
 import androidx.core.content.ContextCompat;
 
@@ -25,12 +26,13 @@ public class GameOver {
         float y = 300;
         float textSize = 200;
 
-        Paint paint = new Paint();
+        Paint gameOverPaint = new Paint();
         int color = ContextCompat.getColor(context, R.color.gameOver);
-        paint.setColor(color);
-        paint.setTextSize(textSize);
-        paint.setFakeBoldText(true);
+        gameOverPaint.setColor(color);
+        gameOverPaint.setTextSize(textSize);
+        gameOverPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
 
-        canvas.drawText(gameOverText, x, y, paint);
+
+        canvas.drawText(gameOverText, x, y, gameOverPaint);
     }
 }

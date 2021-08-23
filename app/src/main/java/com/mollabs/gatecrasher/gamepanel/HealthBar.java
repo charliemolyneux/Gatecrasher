@@ -3,6 +3,7 @@ package com.mollabs.gatecrasher.gamepanel;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 
 import androidx.core.content.ContextCompat;
 
@@ -38,6 +39,7 @@ public class HealthBar {
         int healthTextColor = ContextCompat.getColor(context, R.color.healthBarText);
         healthTextPaint.setColor(healthTextColor);
         healthTextPaint.setTextSize(40);
+        healthTextPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
     }
 
     public void draw(Canvas canvas) {
@@ -45,9 +47,9 @@ public class HealthBar {
 
         // Draw border
         float borderLeft, borderTop, borderRight, borderBottom;
-        borderLeft = 100;
+        borderLeft = 1750;
         borderRight = borderLeft + width;
-        borderTop = 1000;
+        borderTop = 150;
         borderBottom = borderTop - height;
         canvas.drawRect(borderLeft, borderTop, borderRight, borderBottom, borderPaint);
 
@@ -64,7 +66,7 @@ public class HealthBar {
         // Draw Text
         float healthTextPositionX , healthTextPositionY;
         String healthBarText = "Health";
-        healthTextPositionX = width - 200;
+        healthTextPositionX = borderLeft;
         healthTextPositionY = borderTop - 72;
         canvas.drawText(healthBarText, healthTextPositionX, healthTextPositionY, healthTextPaint);
     }

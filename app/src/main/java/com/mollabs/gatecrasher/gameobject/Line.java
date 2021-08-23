@@ -4,11 +4,13 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 public abstract class Line extends GameObject {
+    protected double length;
     protected Paint paint;
 
-    public Line(int color, double positionX, double positionY, double stopX, double stopY) {
-        super(positionX, positionY);
+    public Line(int color, double startX, double startY, double stopX, double stopY) {
+        super(startX, startY);
 
+        this.length = GameObject.getLength(startX, startY, stopX, stopY);
         paint = new Paint();
         paint.setColor(color);
 

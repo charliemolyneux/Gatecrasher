@@ -1,6 +1,7 @@
 package com.mollabs.gatecrasher.main;
 
 import android.graphics.Canvas;
+import android.util.Log;
 import android.view.SurfaceHolder;
 
 /*
@@ -31,12 +32,28 @@ public class GameLoop extends Thread {
     }
 
     public void startLoop() {
+        Log.d("GameLoop.java", "startLoop()");
+
         isRunning = true;
         start();
     }
 
+    public void stopLoop() {
+        Log.d("GameLoop.java", "stopLoop()");
+        isRunning = false;
+        // wait for the thread to join, so as not to draw something to the surface when its been destroyed
+        // Game could pause when thread is in the middle of running before it has paused
+        try {
+            join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void run() {
+        Log.d("GameLoop.java", "run()");
+
         super.run();
 
         // Declare time and cycle count variables
@@ -51,7 +68,6 @@ public class GameLoop extends Thread {
         Canvas canvas = null;
         startTime = System.currentTimeMillis();
         while(isRunning) {
-
             // Try to update and render game
             try {
                 canvas = surfaceHolder.lockCanvas();
@@ -72,7 +88,6 @@ public class GameLoop extends Thread {
                     }
                 }
             }
-
             // Pause game loop to not exceed target UPS
             elapsedTime = System.currentTimeMillis() - startTime;
             sleepTime = (long) (updateCount*UPS_PERIOD - elapsedTime);
@@ -83,7 +98,6 @@ public class GameLoop extends Thread {
                     e.printStackTrace();
                 }
             }
-
             // Skip frames to keep up with target UPS
             while(sleepTime < 0 && updateCount < MAX_UPS-1) {
                 game.update();
@@ -91,7 +105,6 @@ public class GameLoop extends Thread {
                 elapsedTime = System.currentTimeMillis() - startTime;
                 sleepTime = (long) (updateCount*UPS_PERIOD - elapsedTime);
             }
-
             // Calculate average UPS and FPS
             elapsedTime = System.currentTimeMillis() - startTime;
             if (elapsedTime >= 1000) {
@@ -103,4 +116,5 @@ public class GameLoop extends Thread {
             }
         }
     }
+
 }

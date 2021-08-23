@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import androidx.core.content.ContextCompat;
 import com.mollabs.gatecrasher.R;
 import com.mollabs.gatecrasher.gamepanel.HealthBar;
+import com.mollabs.gatecrasher.graphics.Sprite;
 import com.mollabs.gatecrasher.main.GameLoop;
 import com.mollabs.gatecrasher.gamepanel.Joystick;
 
@@ -20,12 +21,14 @@ public class Player extends Circle {
     private final Joystick joystick;
     private HealthBar healthBar;
     private int healthPoints;
+    private Sprite sprite;
 
-    public Player(Context context, Joystick joystick, double positionX, double positionY, double radius) {
+    public Player(Context context, Joystick joystick, double positionX, double positionY, double radius, Sprite sprite) {
         super(ContextCompat.getColor(context, R.color.colorPlayer), positionX, positionY, radius);
         this.joystick = joystick;
         this.healthBar = new HealthBar(context,this);
         this.healthPoints = MAX_HEALTH_POINTS;
+        this.sprite = sprite;
     }
 
     public void update() {
@@ -36,10 +39,23 @@ public class Player extends Circle {
         // Update position
         positionX += velocityX;
         positionY += velocityY;
+
+        // Update direction
+        if (velocityX != 0 || velocityY != 0) {
+            // Normalize velocity to get direction (unit vector of velocity)
+            double distance = Utils.getDistanceBetweenPoints(0, 0, velocityX, velocityY);
+            directionX = velocityX/distance;
+            directionY = velocityY/distance;
+        }
     }
 
     public void draw(Canvas canvas) {
-        super.draw(canvas);
+        //super.draw(canvas);
+        sprite.draw(
+                canvas,
+                (int) getPositionX() - sprite.getWidth()/2,
+                (int) getPositionY() - sprite.getHeight()/2
+        );
         healthBar.draw(canvas);
     }
 

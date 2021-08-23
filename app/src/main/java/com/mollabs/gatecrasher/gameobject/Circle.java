@@ -3,6 +3,8 @@ package com.mollabs.gatecrasher.gameobject;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
+import static com.mollabs.gatecrasher.gameobject.Enemy.MAX_SPEED;
+
 public abstract class Circle extends GameObject {
     protected double radius;
     protected Paint paint;
@@ -27,7 +29,7 @@ public abstract class Circle extends GameObject {
         return distance < distanceToCollision;
     }
 
-    private double getRadius() {
+    public double getRadius() {
         return radius;
     }
 
