@@ -4,6 +4,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
+import com.mollabs.gatecrasher.gameobject.Utils;
+
 /*
 * Joystick is the users control over the player in the game
 * Player will move in the direction of the joystick
@@ -72,7 +74,7 @@ public class Joystick {
     }
 
     public boolean isPressed(double touchPositionX, double touchPositionY) {
-        joystickCenterToTouchDistance = getDistance(outerCircleCenterPositionX, outerCircleCenterPositionY, touchPositionX, touchPositionY);
+        joystickCenterToTouchDistance = Utils.getDistanceBetweenPoints(outerCircleCenterPositionX, outerCircleCenterPositionY, touchPositionX, touchPositionY);
         return joystickCenterToTouchDistance < outerCircleRadius;
     }
 
@@ -87,7 +89,7 @@ public class Joystick {
     public void setActuator(double touchPositionX, double touchPositionY) {
         double deltaX = touchPositionX - outerCircleCenterPositionX;
         double deltaY = touchPositionY - outerCircleCenterPositionY;
-        double deltaDistance = getDistance(0, 0, deltaX, deltaY);
+        double deltaDistance = Utils.getDistanceBetweenPoints(0, 0, deltaX, deltaY);
 
         if (deltaDistance < outerCircleRadius) {
             actuatorX = deltaX/outerCircleRadius;
@@ -109,20 +111,6 @@ public class Joystick {
 
     public double getActuatorY() {
         return actuatorY;
-    }
-
-    public double getDistance(double point1x, double point1y, double point2x, double point2y) {
-        if (point1x == 0 && point1y == 0) {
-            return Math.sqrt(
-                    Math.pow(point2x, 2) +
-                    Math.pow(point2y, 2)
-            );
-        } else {
-            return Math.sqrt(
-                    Math.pow(point1x - point2x, 2) +
-                    Math.pow(point1y - point2y, 2)
-            );
-        }
     }
 
 }

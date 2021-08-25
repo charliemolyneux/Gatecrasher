@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat;
 
 import com.mollabs.gatecrasher.R;
 import com.mollabs.gatecrasher.gameobject.Player;
+import com.mollabs.gatecrasher.main.GameDisplay;
 
 /*
 * HealthBar displays the players health to the screen

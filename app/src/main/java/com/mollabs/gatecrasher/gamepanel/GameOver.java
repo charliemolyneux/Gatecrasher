@@ -32,7 +32,6 @@ public class GameOver {
         gameOverPaint.setTextSize(textSize);
         gameOverPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
 
-
         canvas.drawText(gameOverText, x, y, gameOverPaint);
     }
 }

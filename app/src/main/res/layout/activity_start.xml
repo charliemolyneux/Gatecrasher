@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
+    <!-- Start Button -->
     <Button
         android:id="@+id/startButton"
         android:layout_width="0dp"
@@ -18,7 +18,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
+    <!-- Exit Button -->
     <Button
         android:id="@+id/exitButton"
         android:layout_width="wrap_content"
@@ -31,12 +31,12 @@
         app:layout_constraintTop_toBottomOf="@id/startButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-
+    <!-- Settings Button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/settingsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorLight"
+        android:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.951"
@@ -44,12 +44,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.078"
         app:srcCompat="@drawable/ic_settings_black" />
-
+    <!-- Leaderboard Button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/leaderboardsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorLight"
+        android:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.838"
@@ -57,6 +57,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.078"
         app:srcCompat="@drawable/ic_list_numbered" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

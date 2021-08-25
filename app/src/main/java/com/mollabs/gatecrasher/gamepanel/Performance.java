@@ -32,7 +32,7 @@ public class Performance {
         paint.setColor(color);
         paint.setTextSize(50);
         String formatUPS = String.format(Locale.ENGLISH, "%.5s", averageUPS);
-        canvas.drawText("UPS: " + formatUPS, 100, 100, paint);
+        canvas.drawText("UPS: " + formatUPS, 100, 900, paint);
     }
 
     public void drawFPS(Canvas canvas) {
@@ -42,7 +42,7 @@ public class Performance {
         paint.setColor(color);
         paint.setTextSize(50);
         String formatFPS = String.format(Locale.ENGLISH, "%.5s", averageFPS);
-        canvas.drawText("FPS: " + formatFPS, 100, 200, paint);
+        canvas.drawText("FPS: " + formatFPS, 100, 1000, paint);
     }
 
 }

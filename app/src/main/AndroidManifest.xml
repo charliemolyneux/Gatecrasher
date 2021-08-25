@@ -27,8 +27,19 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         </activity>
 
-        <activity android:name=".start.LeaderActivity"> </activity>
-        <activity android:name=".start.SettingsActivity"> </activity>
-    </application>
+        <activity android:name=".start.LeaderActivity"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".main.MainActivity"/>
+        </activity>
 
+        <activity android:name=".start.SettingsActivity"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".main.MainActivity"/>
+        </activity>
+
+    </application>
 </manifest>

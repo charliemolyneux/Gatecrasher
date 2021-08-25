@@ -4,16 +4,23 @@ public class Utils {
 
     /**
      * getDistanceBetweenPoints returns the distance between 2d points p1 and p2
-     * @param p1x
-     * @param p1y
-     * @param p2x
-     * @param p2y
+     * @param point1x
+     * @param point1y
+     * @param point2x
+     * @param point2y
      * @return
      */
-    public static double getDistanceBetweenPoints(int p1x, int p1y, double p2x, double p2y) {
-        return Math.sqrt(
-                Math.pow(p1x - p2x, 2) +
-                        Math.pow(p1y - p2y, 2)
-        );
+    public static double getDistanceBetweenPoints(int point1x, int point1y, double point2x, double point2y) {
+        if (point1x == 0 && point1y == 0) {
+            return Math.sqrt(
+                    Math.pow(point2x, 2) +
+                            Math.pow(point2y, 2)
+            );
+        } else {
+            return Math.sqrt(
+                    Math.pow(point1x - point2x, 2) +
+                            Math.pow(point1y - point2y, 2)
+            );
+        }
     }
 }

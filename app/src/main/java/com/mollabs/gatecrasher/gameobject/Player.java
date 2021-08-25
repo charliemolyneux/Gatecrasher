@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat;
 import com.mollabs.gatecrasher.R;
 import com.mollabs.gatecrasher.gamepanel.HealthBar;
 import com.mollabs.gatecrasher.graphics.Sprite;
+import com.mollabs.gatecrasher.main.GameDisplay;
 import com.mollabs.gatecrasher.main.GameLoop;
 import com.mollabs.gatecrasher.gamepanel.Joystick;
 
@@ -49,12 +50,11 @@ public class Player extends Circle {
         }
     }
 
-    public void draw(Canvas canvas) {
-        //super.draw(canvas);
+    public void draw(Canvas canvas, GameDisplay gameDisplay) {
         sprite.draw(
                 canvas,
-                (int) getPositionX() - sprite.getWidth()/2,
-                (int) getPositionY() - sprite.getHeight()/2
+                (int) gameDisplay.gameToDisplayCoordinatesX(getPositionX()) - sprite.getWidth()/2,
+                (int) gameDisplay.gameToDisplayCoordinatesY(getPositionY()) - sprite.getHeight()/2
         );
         healthBar.draw(canvas);
     }

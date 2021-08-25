@@ -6,4 +6,16 @@
     <string name="leaderboards">Leaderboards</string>
     <string name="exit">Exit</string>
     <string name="gameOver">Game Over</string>
+
+    <!-- Strings related to leaderboard -->
+    <string name="highScoreText">High Score</string>
+    <string name="rankText">Rank</string>
+    <string name="scoreText">Score</string>
+    <string name="dateText">Date</string>
+    <string name="highScoreNum1">1.</string>
+    <string name="highScoreNum2">2.</string>
+    <string name="highScoreNum3">3.</string>
+    <string name="highScoreNum4">4.</string>
+    <string name="highScoreNum5">5.</string>
+
 </resources>

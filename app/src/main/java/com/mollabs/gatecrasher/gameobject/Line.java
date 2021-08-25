@@ -1,3 +1,4 @@
+/*
 package com.mollabs.gatecrasher.gameobject;
 
 import android.graphics.Canvas;
@@ -16,7 +17,6 @@ public abstract class Line extends GameObject {
 
     }
 
-    @Override
     public void draw(Canvas canvas) {
         double stopX = 0;
         double stopY = 0;
@@ -24,3 +24,4 @@ public abstract class Line extends GameObject {
                 (float) stopX, (float) stopY, paint);
     }
 }
+*/

@@ -1,11 +1,15 @@
 package com.mollabs.gatecrasher.main;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -16,6 +20,7 @@ import com.mollabs.gatecrasher.gameobject.Spell;
 import com.mollabs.gatecrasher.gamepanel.GameOver;
 import com.mollabs.gatecrasher.gamepanel.Joystick;
 import com.mollabs.gatecrasher.gamepanel.Performance;
+import com.mollabs.gatecrasher.gamepanel.Score;
 import com.mollabs.gatecrasher.graphics.SpriteSheet;
 
 import java.util.ArrayList;
@@ -34,9 +39,12 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
     private List<Enemy> enemyList = new ArrayList<Enemy>();
     private List<Spell> spellList = new ArrayList<Spell>();
     private GameOver gameOver;
+    private Score score;
     private int joystickPointerId = 0;
     private int numberOfSpellsToCast = 0;
+    private int scoreCurrent = 0;
     private SpriteSheet spriteSheet;
+    private GameDisplay gameDisplay;
 
     public Game(Context context) {
         super(context);
@@ -51,11 +59,17 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
         // Initialize game panels
         performance = new Performance(context, gameLoop);
         gameOver = new GameOver(context);
+        score = new Score(context);
         joystick = new Joystick(1850, 850, 150, 50);
 
         // Initialize game objects
         spriteSheet = new SpriteSheet(context);
         player = new Player(context, joystick, 500, 500, 30, spriteSheet.getPlayerSprite());
+
+        // Initialize game display and center it around player
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        ((Activity) getContext()).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        gameDisplay = new GameDisplay(player, displayMetrics.widthPixels, displayMetrics.heightPixels);
 
         setFocusable(true);
     }
@@ -95,7 +109,6 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
                 }
                 return true;
         }
-
         return super.onTouchEvent(event);
     }
 
@@ -131,21 +144,23 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
         if (player.getHealthPoints() <= 0) {
             gameOver.draw(canvas);
         }
+        score.draw(canvas, scoreCurrent);
         
         // Draw game objects
-        player.draw(canvas);
+        player.draw(canvas, gameDisplay);
         for (Enemy enemy : enemyList) {
-            enemy.draw(canvas);
+            enemy.draw(canvas, gameDisplay);
         }
         for (Spell spell : spellList) {
-            spell.draw(canvas);
+            spell.draw(canvas, gameDisplay);
         }
     }
 
     public void update() {
-
         // Stop updating the game if the player dies
         if (player.getHealthPoints() <= 0) {
+            // Set high score (if applicable)
+            Score.setScores(scoreCurrent);
             return;
         }
 
@@ -197,6 +212,7 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
                 if (Circle.isColliding(spell, enemy)) {
                     iteratorSpell.remove();
                     iteratorEnemy.remove();
+                    scoreCurrent++;
                     break;
                 }
             }
@@ -211,9 +227,9 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
                     }
                 }
             }
-
-
         }
+        // Update game display at the end of the update method
+        gameDisplay.update();
     }
 
     public void pause() {

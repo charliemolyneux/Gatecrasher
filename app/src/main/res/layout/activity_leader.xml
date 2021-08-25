@@ -1,6 +1,261 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <!-- Title Text -->
+    <TextView
+        android:id="@+id/rankText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rankText"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/rankNum1"
+        app:layout_constraintEnd_toStartOf="@+id/scoreText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.163" /> <!-- Rank -->
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/scoreText"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/highScore1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.163" /> <!-- Score -->
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dateText"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dateNum1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/scoreText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.163" /> <!-- Date -->
+
+    <!-- Rank Number Text -->
+    <TextView
+        android:id="@+id/rankNum1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/highScoreNum1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/rankNum2"
+        app:layout_constraintEnd_toStartOf="@id/highScore1"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rankText"
+        app:layout_constraintVertical_bias="0.163" />
+
+    <TextView
+        android:id="@+id/rankNum2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/highScoreNum2"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/rankNum3"
+        app:layout_constraintEnd_toStartOf="@+id/highScore2"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rankNum1"
+        app:layout_constraintVertical_bias="0.163" />
+
+    <TextView
+        android:id="@+id/rankNum3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/highScoreNum3"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/rankNum4"
+        app:layout_constraintEnd_toStartOf="@id/highScore3"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rankNum2"
+        app:layout_constraintVertical_bias="0.163" />
+
+    <TextView
+        android:id="@+id/rankNum4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/highScoreNum4"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/rankNum5"
+        app:layout_constraintEnd_toStartOf="@id/highScore4"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rankNum3"
+        app:layout_constraintVertical_bias="0.163" />
+
+    <TextView
+        android:id="@+id/rankNum5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/highScoreNum5"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/highScore5"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rankNum4"
+        app:layout_constraintVertical_bias="0.163" />
+
+    <!-- Score Text -->
+    <TextView
+        android:id="@+id/highScore1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/highScoreNum1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/highScore2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scoreText"
+        app:layout_constraintVertical_bias="0.163" />
+
+    <TextView
+        android:id="@+id/highScore2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/highScoreNum2"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/highScore3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/highScore1"
+        app:layout_constraintVertical_bias="0.108" />
+
+    <TextView
+        android:id="@+id/highScore3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/highScoreNum3"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/highScore4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/highScore2"
+        app:layout_constraintVertical_bias="0.144" />
+
+    <TextView
+        android:id="@+id/highScore4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/highScoreNum4"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/highScore5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/highScore3"
+        app:layout_constraintVertical_bias="0.164" />
+
+    <TextView
+        android:id="@+id/highScore5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/highScoreNum5"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/highScore4"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <!-- Date/Time Text -->
+    <TextView
+        android:id="@+id/dateNum1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/highScoreNum1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dateNum2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toEndOf="@+id/highScore1"
+        app:layout_constraintTop_toBottomOf="@+id/dateText"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <TextView
+        android:id="@+id/dateNum2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/highScoreNum2"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dateNum3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toEndOf="@id/highScore2"
+        app:layout_constraintTop_toBottomOf="@+id/dateNum1"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <TextView
+        android:id="@+id/dateNum3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/highScoreNum3"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dateNum4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toEndOf="@id/highScore3"
+        app:layout_constraintTop_toBottomOf="@+id/dateNum2"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <TextView
+        android:id="@+id/dateNum4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/highScoreNum4"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dateNum5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toEndOf="@id/highScore4"
+        app:layout_constraintTop_toBottomOf="@+id/dateNum3"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <TextView
+        android:id="@+id/dateNum5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/highScoreNum5"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toEndOf="@id/highScore5"
+        app:layout_constraintTop_toBottomOf="@+id/dateNum4"
+        app:layout_constraintVertical_bias="0.32" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

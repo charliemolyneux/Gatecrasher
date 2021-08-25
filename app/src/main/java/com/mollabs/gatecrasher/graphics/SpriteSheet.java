@@ -38,7 +38,6 @@ public class SpriteSheet {
         }
     }
 
-
     public Bitmap getBitmap() {
         return bitmap;
     }

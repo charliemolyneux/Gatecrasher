@@ -2,6 +2,8 @@ package com.mollabs.gatecrasher.gameobject;
 
 import android.graphics.Canvas;
 
+import com.mollabs.gatecrasher.main.GameDisplay;
+
 public abstract class GameObject {
     protected double positionX;
     protected double positionY;
@@ -16,15 +18,21 @@ public abstract class GameObject {
         this.positionY = positionY;
     }
 
-    public abstract void draw(Canvas canvas);
+    public abstract void draw(Canvas canvas, GameDisplay gameDisplay);
     public abstract void update();
 
-    protected double getPositionX() {
+    public double getPositionX() {
         return positionX;
     }
-
-    protected double getPositionY() {
+    public double getPositionY() {
         return positionY;
+    }
+
+    protected double getDirectionX() {
+        return directionX;
+    }
+    protected double getDirectionY() {
+        return directionY;
     }
 
     protected static double getDistanceBetweenObjects(GameObject obj1, GameObject obj2) {
@@ -41,12 +49,6 @@ public abstract class GameObject {
         );
     }
 
-    protected double getDirectionX() {
-        return directionX;
-    }
 
-    protected double getDirectionY() {
-        return directionY;
-    }
 }
 

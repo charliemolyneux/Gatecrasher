@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat;
 import com.mollabs.gatecrasher.R;
 import com.mollabs.gatecrasher.graphics.Sprite;
 import com.mollabs.gatecrasher.main.Game;
+import com.mollabs.gatecrasher.main.GameDisplay;
 import com.mollabs.gatecrasher.main.GameLoop;
 
 /*
@@ -34,7 +35,7 @@ public class Enemy extends Circle {
         this.player = player;
         this.sprite = sprite;
     }
-    
+
     @Override
     public void update() {
         // ===================================================================================
@@ -64,11 +65,11 @@ public class Enemy extends Circle {
         positionY += velocityY;
     }
 
-    public void draw(Canvas canvas) {
+    public void draw(Canvas canvas, GameDisplay gameDisplay) {
         sprite.draw(
                 canvas,
-                (int) getPositionX() - sprite.getWidth()/2,
-                (int) getPositionY() - sprite.getHeight()/2
+                (int) gameDisplay.gameToDisplayCoordinatesX(getPositionX()) - sprite.getWidth()/2,
+                (int) gameDisplay.gameToDisplayCoordinatesY(getPositionY()) - sprite.getHeight()/2
         );
     }
 

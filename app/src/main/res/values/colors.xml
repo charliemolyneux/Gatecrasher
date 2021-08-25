@@ -15,6 +15,7 @@
     <color name="healthBarBorder">#A0A0A0</color>
     <color name="healthBarHealth">#00FF00</color>
     <color name="healthBarText">#FFFFFF</color>
+    <color name="score">#FFFFFF</color>
     <color name="gameOver">#FFFFFF</color>
     <color name="joystickBackground">#DCDCDC</color>
     <color name="joystickPad">#FFEB3B</color>
