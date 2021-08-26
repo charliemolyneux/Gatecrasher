@@ -22,6 +22,7 @@ import com.mollabs.gatecrasher.gamepanel.Joystick;
 import com.mollabs.gatecrasher.gamepanel.Performance;
 import com.mollabs.gatecrasher.gamepanel.Score;
 import com.mollabs.gatecrasher.graphics.SpriteSheet;
+import com.mollabs.gatecrasher.map.TileMap;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -32,6 +33,7 @@ import java.util.List;
 * and render all objects to the screen
 * */
 public class Game extends SurfaceView implements SurfaceHolder.Callback {
+    private final TileMap tileMap;
     private GameLoop gameLoop;
     private Performance performance;
     private Joystick joystick;
@@ -41,7 +43,6 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
     private GameOver gameOver;
     private Score score;
     private int joystickPointerId = 0;
-    private int numberOfSpellsToCast = 0;
     private int scoreCurrent = 0;
     private SpriteSheet spriteSheet;
     private GameDisplay gameDisplay;
@@ -71,6 +72,9 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
         ((Activity) getContext()).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         gameDisplay = new GameDisplay(player, displayMetrics.widthPixels, displayMetrics.heightPixels);
 
+        // Initialize tile map
+        tileMap = new TileMap(spriteSheet);
+
         setFocusable(true);
     }
 
@@ -83,7 +87,6 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
             case MotionEvent.ACTION_POINTER_DOWN:
                 if (joystick.getIsPressed()) {
                     // Joystick was pressed before this event -> cast spell
-                    numberOfSpellsToCast++;
                     spellList.add(new Spell(getContext(), player));
                 } else if (joystick.isPressed(event.getX(), event.getY())) {
                     // Joystick is pressed -> setIsPressed(true)
@@ -138,12 +141,12 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
     public void draw(Canvas canvas) {
         super.draw(canvas);
 
+        // Draw tilemap
+        tileMap.draw(canvas, gameDisplay);
+
         // Draw game panels
         joystick.draw(canvas);
         performance.draw(canvas);
-        if (player.getHealthPoints() <= 0) {
-            gameOver.draw(canvas);
-        }
         score.draw(canvas, scoreCurrent);
         
         // Draw game objects
@@ -153,6 +156,11 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
         }
         for (Spell spell : spellList) {
             spell.draw(canvas, gameDisplay);
+        }
+
+        // Draw game over
+        if (player.getHealthPoints() <= 0) {
+            gameOver.draw(canvas);
         }
     }
 
@@ -175,11 +183,6 @@ public class Game extends SurfaceView implements SurfaceHolder.Callback {
                 enemy = new Enemy(getContext(), player, spriteSheet.getEnemySprite());
             }
             enemyList.add(enemy);
-        }
-
-        while (numberOfSpellsToCast > 0) {
-            spellList.add(new Spell(getContext(), player));
-            numberOfSpellsToCast--;
         }
 
         // Update state of each enemy

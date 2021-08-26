@@ -10,6 +10,8 @@ import com.mollabs.gatecrasher.R;
 import java.util.Random;
 
 public class SpriteSheet {
+    private static final int SPRITE_WIDTH_PIXELS = 128;
+    private static final int SPRITE_HEIGHT_PIXELS = 128;
     private Bitmap bitmap;
 
     public SpriteSheet(Context context) {
@@ -19,8 +21,12 @@ public class SpriteSheet {
         bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.sprite_sheet, bitmapOptions);
     }
 
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
     public Sprite getPlayerSprite() {
-        return new Sprite(this, new Rect(0, 0, 128, 128));
+        return getSpriteByIndex(0, 0);
     }
 
     public Sprite getEnemySprite() {
@@ -28,17 +34,35 @@ public class SpriteSheet {
         int randomNum = rand.nextInt(4) + 1;
 
         if (randomNum == 1) {
-            return new Sprite(this, new Rect(0, 128, 128, 256));
+            return getSpriteByIndex(1, 0);
         } else if (randomNum == 2) {
-            return new Sprite(this, new Rect(128, 128, 256, 256));
+            return getSpriteByIndex(1, 1);
         } else if (randomNum == 3) {
-            return new Sprite(this, new Rect(256, 128, 384, 256));
+            return getSpriteByIndex(1, 2);
         } else {
-            return new Sprite(this, new Rect(384, 128, 512, 256));
+            return getSpriteByIndex(1, 3);
         }
     }
 
-    public Bitmap getBitmap() {
-        return bitmap;
+    public Sprite getCobbleSprite() {
+        return getSpriteByIndex(2, 0);
     }
+
+    public Sprite getLavaSprite() {
+        return getSpriteByIndex(2, 1);
+    }
+
+    public Sprite getGroundSprite() {
+        return getSpriteByIndex(2, 2);
+    }
+
+    private Sprite getSpriteByIndex(int idxRow, int idxCol) {
+        return new Sprite(this, new Rect(
+                idxCol*SPRITE_WIDTH_PIXELS,
+                idxRow*SPRITE_HEIGHT_PIXELS,
+                (idxCol + 1)*SPRITE_WIDTH_PIXELS,
+                (idxRow + 1)*SPRITE_HEIGHT_PIXELS
+        ));
+    }
+
 }
